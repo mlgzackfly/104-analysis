@@ -52,9 +52,6 @@ G.add_node(start_job_id)
 # 開始遞迴獲取相關工作
 get_related_jobs(start_job_id, 1, max_depth, G, headers)
 
-# 設置圖的大小，根據節點數量自動調整
-plt.figure(figsize=(10, 10))
-
 # 使用 Fruchterman-Reingold 布局算法
 pos = nx.fruchterman_reingold_layout(G)
 
