@@ -58,7 +58,7 @@ class RelatedJobsGraph:
 
     def draw_graph(self):
         # 使用 Fruchterman-Reingold 布局算法
-        pos = nx.fruchterman_reingold_layout(self.G)
+        pos = nx.fruchterman_reingold_layout(self.G, k=0.3)
 
         # 設置圖的大小，根據節點數量自動調整
         plt.figure(figsize=(50, 50))
