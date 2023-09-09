@@ -56,7 +56,7 @@ get_related_jobs(start_job_id, 1, max_depth, G, headers)
 pos = nx.fruchterman_reingold_layout(G)
 
 # 設置圖的大小，根據節點數量自動調整
-plt.figure(figsize=(28, 28))
+plt.figure(figsize=(50, 50))
 
 # 繪製關聯網路圖
 nx.draw(G, pos, with_labels=True, node_size=900, node_color='skyblue', font_size=28)
