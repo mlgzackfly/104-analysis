@@ -59,5 +59,5 @@ pos = nx.fruchterman_reingold_layout(G)
 plt.figure(figsize=(50, 50))
 
 # 繪製關聯網路圖
-nx.draw(G, pos, with_labels=True, node_size=900, node_color='skyblue', font_size=28)
+nx.draw(G, pos, with_labels=True, node_size=10000, node_color='skyblue', font_size=28)
 plt.show()
