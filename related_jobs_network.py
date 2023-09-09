@@ -3,6 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import re
 import warnings
+import html
 
 
 class RelatedJobsGraph:
@@ -17,13 +18,23 @@ class RelatedJobsGraph:
             "Referer": f"https://www.104.com.tw/jobs/apply/analysis/{start_job_id}?jobsource=my104_apply"
         }
         self.G = nx.Graph()
-        self.G.add_node(start_job_id)
+        self.start_job_name = self.get_job_name(start_job_id)
+        self.G.add_node(self.get_job_name(start_job_id))
+
+    def get_job_name(self, job_id):
+        url = f"https://www.104.com.tw/job/{job_id}"
+        response = requests.get(url, headers=self.headers)
+        match = re.search(r'<title>(.*?)｜', response.text)
+        if match:
+            job_name = match.group(1)
+            return html.unescape(job_name)
+        return job_id  # 如果無法獲取名稱，使用工作 ID 作為名稱
 
     def get_related_jobs(self, job_id, depth, parent_node=None):
         if depth > self.max_depth:
             return
         if depth == 1:
-            parent_node = job_id
+            parent_node = self.get_job_name(job_id)
         url = f"https://www.104.com.tw/job/ajax/similarJobs/{job_id}"
         response = requests.get(url, headers=self.headers)
         data = response.json()
