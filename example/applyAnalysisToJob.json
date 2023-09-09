@@ -1,0 +1,398 @@
+{
+    "sex": {
+        "0": {
+            "sexName": "男",
+            "count": "14",
+            "percent": "77.78"
+        },
+        "1": {
+            "sexName": "女",
+            "count": "4",
+            "percent": "22.22"
+        },
+        "update_time": "2023-09-09 04:28:21",
+        "total": "18"
+    },
+    "edu": {
+        "0": {
+            "eduName": "博碩士",
+            "count": "2",
+            "percent": "11.11"
+        },
+        "1": {
+            "eduName": "大學",
+            "count": "3",
+            "percent": "16.67"
+        },
+        "2": {
+            "eduName": "專科",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "3": {
+            "eduName": "高中職",
+            "count": "4",
+            "percent": "22.22"
+        },
+        "4": {
+            "eduName": "國中(含)以下",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "5": {
+            "eduName": "不拘",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "6": {
+            "eduName": "無法判斷",
+            "count": 9,
+            "percent": "50.00"
+        },
+        "update_time": "2023-09-09 04:28:21",
+        "total": "18"
+    },
+    "yearRange": {
+        "0": {
+            "yearRangeName": "20歲以下",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "1": {
+            "yearRangeName": "21~25歲",
+            "count": "16",
+            "percent": "88.89"
+        },
+        "2": {
+            "yearRangeName": "26~30歲",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "3": {
+            "yearRangeName": "31~35歲",
+            "count": "2",
+            "percent": "11.11"
+        },
+        "4": {
+            "yearRangeName": "36~40歲",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "5": {
+            "yearRangeName": "41~45歲",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "6": {
+            "yearRangeName": "46~50歲",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "7": {
+            "yearRangeName": "51~55歲",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "8": {
+            "yearRangeName": "56~60歲",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "9": {
+            "yearRangeName": "60歲以上",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "update_time": "2023-09-09 04:28:21",
+        "total": "18"
+    },
+    "exp": {
+        "0": {
+            "expName": "無工作經驗",
+            "count": "3",
+            "percent": "16.67"
+        },
+        "1": {
+            "expName": "1年以下",
+            "count": "6",
+            "percent": "33.33"
+        },
+        "2": {
+            "expName": "1~3年 ",
+            "count": "6",
+            "percent": "33.33"
+        },
+        "3": {
+            "expName": "3~5年",
+            "count": "2",
+            "percent": "11.11"
+        },
+        "4": {
+            "expName": "5~10年",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "5": {
+            "expName": "10~15年",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "6": {
+            "expName": "15~20年",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "7": {
+            "expName": "20~25年",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "8": {
+            "expName": "25年以上",
+            "count": 0,
+            "percent": "0.00"
+        },
+        "update_time": "2023-09-09 04:28:21",
+        "total": "18"
+    },
+    "language": {
+        "0": {
+            "lang_no": "1",
+            "langName": "英文",
+            "count": 13,
+            "percent": 72.22,
+            "level": {
+                "1": {
+                    "level_no": "4",
+                    "levelName": "略懂",
+                    "count": "3",
+                    "percent": "16.67"
+                },
+                "2": {
+                    "level_no": "8",
+                    "levelName": "中等",
+                    "count": "6",
+                    "percent": "33.33"
+                },
+                "3": {
+                    "level_no": "2",
+                    "levelName": "精通",
+                    "count": "4",
+                    "percent": "22.22"
+                }
+            }
+        },
+        "1": {
+            "lang_no": "2",
+            "langName": "日文",
+            "count": 3,
+            "percent": 16.669999999999998,
+            "level": {
+                "1": {
+                    "level_no": "4",
+                    "levelName": "略懂",
+                    "count": "2",
+                    "percent": "11.11"
+                },
+                "3": {
+                    "level_no": "2",
+                    "levelName": "精通",
+                    "count": "1",
+                    "percent": "5.56"
+                }
+            }
+        },
+        "2": {
+            "lang_no": "3",
+            "langName": "法文",
+            "count": 1,
+            "percent": 5.56,
+            "level": {
+                "1": {
+                    "level_no": "4",
+                    "levelName": "略懂",
+                    "count": "1",
+                    "percent": "5.56"
+                }
+            }
+        },
+        "3": {
+            "lang_no": "18",
+            "langName": "中文",
+            "count": 3,
+            "percent": 16.67,
+            "level": {
+                "3": {
+                    "level_no": "2",
+                    "levelName": "精通",
+                    "count": "3",
+                    "percent": "16.67"
+                }
+            }
+        },
+        "update_time": "2023-09-09 04:28:21",
+        "total": "18"
+    },
+    "major": {
+        "0": {
+            "major": "3006005000",
+            "majorName": "資訊管理相關",
+            "count": "3",
+            "percent": "16.67"
+        },
+        "1": {
+            "major": "3008004000",
+            "majorName": "資訊工程相關",
+            "count": "2",
+            "percent": "11.11"
+        },
+        "2": {
+            "major": "3011008000",
+            "majorName": "電機電子工程相關",
+            "count": "2",
+            "percent": "11.11"
+        },
+        "3": {
+            "major": "3006006000",
+            "majorName": "企業管理相關",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "4": {
+            "major": "3018001000",
+            "majorName": "普通科",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "update_time": "2023-09-09 04:28:21",
+        "total": "18"
+    },
+    "skill": {
+        "0": {
+            "skill": "12001006017",
+            "skillName": "JavaScript",
+            "count": "6",
+            "percent": "33.33"
+        },
+        "1": {
+            "skill": "12001003025",
+            "skillName": "Java",
+            "count": "5",
+            "percent": "27.78"
+        },
+        "2": {
+            "skill": "12001006032",
+            "skillName": "CSS",
+            "count": "5",
+            "percent": "27.78"
+        },
+        "3": {
+            "skill": "12001003045",
+            "skillName": "Python",
+            "count": "5",
+            "percent": "27.78"
+        },
+        "4": {
+            "skill": "12001003041",
+            "skillName": "PHP",
+            "count": "3",
+            "percent": "16.67"
+        },
+        "5": {
+            "skill": "12001006013",
+            "skillName": "HTML",
+            "count": "5",
+            "percent": "27.78"
+        },
+        "6": {
+            "skill": "12001002003",
+            "skillName": "MCU",
+            "count": "2",
+            "percent": "11.11"
+        },
+        "7": {
+            "skill": "12001003008",
+            "skillName": "C",
+            "count": "3",
+            "percent": "16.67"
+        },
+        "8": {
+            "skill": "12001002018",
+            "skillName": "Git",
+            "count": "2",
+            "percent": "11.11"
+        },
+        "9": {
+            "skill": "12001003009",
+            "skillName": "C#",
+            "count": "2",
+            "percent": "11.11"
+        },
+        "update_time": "2023-09-09 04:28:21",
+        "total": "18"
+    },
+    "cert": {
+        "0": {
+            "cert": "4001001005",
+            "certName": "TOEIC (多益測驗)",
+            "count": "6",
+            "percent": "33.33"
+        },
+        "1": {
+            "cert": "4004001006",
+            "certName": "丙級工業電子技術士",
+            "count": "2",
+            "percent": "11.11"
+        },
+        "2": {
+            "cert": "4002044063",
+            "certName": "TQC+ 電路設計專業人員",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "3": {
+            "cert": "4002035047",
+            "certName": "TQC專業Linux網路管理工程師",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "4": {
+            "cert": "4002035048",
+            "certName": "TQC專業Linux系統管理工程師",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "5": {
+            "cert": "4002035046",
+            "certName": "TQC-DA-大型資料庫管理系統 MySQL5",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "6": {
+            "cert": "4002038019",
+            "certName": "CPE大學程式能力檢定",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "7": {
+            "cert": "4004001019",
+            "certName": "乙級儀表電子技術士",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "8": {
+            "cert": "4002040001",
+            "certName": "ERP規劃師",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "9": {
+            "cert": "4006003031",
+            "certName": "金融科技力知識檢定",
+            "count": "1",
+            "percent": "5.56"
+        },
+        "update_time": "2023-09-09 04:28:21",
+        "total": "18"
+    }
+}

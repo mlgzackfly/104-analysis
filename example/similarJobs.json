@@ -1,0 +1,93 @@
+{
+    "data": {
+        "list": [
+            {
+                "jobNo": "12475649",
+                "name": "2023學生實習專區-軟體工程師 Software Engineer Intern",
+                "custName": "BigGo_樂方股份有限公司",
+                "link": {
+                    "job": "//www.104.com.tw/job/7fe9t",
+                    "cust": "//www.104.com.tw/company/1a2x6bkf3h"
+                },
+                "area": "高雄市鼓山區",
+                "periodDesc": "經歷不拘",
+                "eduDesc": "大學以上",
+                "salaryDesc": "時薪180元以上"
+            },
+            {
+                "jobNo": "11775344",
+                "name": "應用工程部助理工程師(實習生)-高雄",
+                "custName": "台灣矽力杰科技股份有限公司",
+                "link": {
+                    "job": "//www.104.com.tw/job/70dww",
+                    "cust": "//www.104.com.tw/company/whqwua8"
+                },
+                "area": "高雄市前鎮區",
+                "periodDesc": "經歷不拘",
+                "eduDesc": "大學以上",
+                "salaryDesc": "時薪176元"
+            },
+            {
+                "jobNo": "13088776",
+                "name": "助理工程師/實習生-高雄",
+                "custName": "哈瑪星科技股份有限公司",
+                "link": {
+                    "job": "//www.104.com.tw/job/7sjd4",
+                    "cust": "//www.104.com.tw/company/7q9m5h4"
+                },
+                "area": "高雄市前鎮區",
+                "periodDesc": "經歷不拘",
+                "eduDesc": "大學",
+                "salaryDesc": "時薪176元以上"
+            },
+            {
+                "jobNo": "11323746",
+                "name": "企業實習生(長期)",
+                "custName": "鈺桐有限公司",
+                "link": {
+                    "job": "//www.104.com.tw/job/6qpgi",
+                    "cust": "//www.104.com.tw/company/1a2x6bjyy1"
+                },
+                "area": "高雄市三民區",
+                "periodDesc": "經歷不拘",
+                "eduDesc": "專科",
+                "salaryDesc": "時薪176~200元"
+            },
+            {
+                "jobNo": "12952127",
+                "name": "大學以上在學專案企業實習生（學期10週）",
+                "custName": "新光人壽保險股份有限公司_高三通訊處(簡金地)(M-AY-111-114)",
+                "link": {
+                    "job": "//www.104.com.tw/job/7plxb",
+                    "cust": "//www.104.com.tw/company/1a2x6bjxjn"
+                },
+                "area": "高雄市新興區",
+                "periodDesc": "經歷不拘",
+                "eduDesc": "專科以上",
+                "salaryDesc": "論件計酬5,000元"
+            },
+            {
+                "jobNo": "10329174",
+                "name": "AZ0200-軟體應用工程師(高雄)",
+                "custName": "QNAP_威聯通科技股份有限公司",
+                "link": {
+                    "job": "//www.104.com.tw/job/65e1i",
+                    "cust": "//www.104.com.tw/company/112ce5w8"
+                },
+                "area": "高雄市三民區",
+                "periodDesc": "經歷不拘",
+                "eduDesc": "大學以上",
+                "salaryDesc": "待遇面議"
+            }
+        ],
+        "page": 1,
+        "totalPage": 84,
+        "count": 6,
+        "totalCount": 500,
+        "selectCount": 0,
+        "similarJobsLink": "//www.104.com.tw/job/similar/83ix3"
+    },
+    "metadata": {
+        "testGroup": "2"
+    }
+}
