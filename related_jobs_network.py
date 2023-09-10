@@ -67,7 +67,7 @@ class RelatedJobsGraph:
         plt.figure(figsize=(50, 50))
 
         # 繪製關聯網路圖
-        nx.draw(self.G, pos, with_labels=True, node_size=10000, node_color='skyblue', font_size=28)
+        nx.draw(self.G, pos, with_labels=True, node_size=10000, node_color='skyblue', font_size=16)
         plt.show()
 
 
