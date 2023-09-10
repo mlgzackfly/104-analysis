@@ -59,6 +59,8 @@ class RelatedJobsGraph:
     def draw_graph(self):
 
         # 設置同色系的顏色映射
+        color_map = plt.cm.get_cmap('tab20c', len(self.G.nodes))
+
         # 使用 Spring Layout
         pos = nx.spring_layout(self.G, iterations=500)
 
@@ -69,7 +71,7 @@ class RelatedJobsGraph:
         plt.figure(figsize=(50, 50))
 
         # 繪製關聯網路圖
-        nx.draw(self.G, pos, with_labels=True, node_size=10000, node_color='skyblue', font_size=16)
+        nx.draw(self.G, pos, with_labels=True, node_size=10000, node_color=range(len(self.G.nodes)), cmap=color_map, font_size=16)
         plt.show()
 
 
