@@ -57,8 +57,10 @@ class RelatedJobsGraph:
                 print("未找到工作ID")
 
     def draw_graph(self):
-        # 使用 Fruchterman-Reingold 布局算法
-        pos = nx.fruchterman_reingold_layout(self.G, k=0.05, seed=42)
+
+        # 設置同色系的顏色映射
+        # 使用 Spring Layout
+        pos = nx.spring_layout(self.G, iterations=500)
 
         for node, (x, y) in pos.items():
             pos[node] = (x, y + 0.5)
