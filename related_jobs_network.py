@@ -10,6 +10,7 @@
 import requests
 import networkx as nx
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 import re
 import warnings
 import html
@@ -18,6 +19,84 @@ import logging
 import time
 from typing import Optional, Dict, List, Tuple
 from dataclasses import dataclass
+
+
+def setup_chinese_font():
+    """
+    設定中文字體配置，自動偵測系統可用字體
+
+    優先順序：
+    1. WenQuanYi Zen Hei (Linux 最常見的開源中文字體)
+    2. Noto Sans CJK / Source Han Sans (Google/Adobe 開源字體)
+    3. Microsoft YaHei (Windows)
+    4. PingFang SC (macOS)
+    5. SimHei (Windows 備用)
+    """
+    # 候選字體列表（按優先順序）
+    font_candidates = [
+        # Linux 常見字體
+        'WenQuanYi Zen Hei',
+        'WenQuanYi Micro Hei',
+        'Noto Sans CJK TC',
+        'Noto Sans CJK SC',
+        'Source Han Sans TW',
+        'Source Han Sans CN',
+        'Droid Sans Fallback',
+
+        # Windows 字體
+        'Microsoft YaHei',
+        'Microsoft JhengHei',
+        'SimHei',
+        'SimSun',
+
+        # macOS 字體
+        'PingFang SC',
+        'PingFang TC',
+        'Heiti TC',
+        'STHeiti',
+
+        # 通用備用字體
+        'DejaVu Sans',
+        'Arial Unicode MS',
+    ]
+
+    # 獲取系統所有可用字體
+    system_fonts = set([f.name for f in fm.fontManager.ttflist])
+
+    # 檢測可用字體
+    available_fonts = []
+    for font_name in font_candidates:
+        # 檢查字體是否在系統字體列表中
+        if font_name in system_fonts:
+            available_fonts.append(font_name)
+            continue
+
+        # 檢查去除空格後的名稱
+        font_name_no_space = font_name.replace(' ', '')
+        if font_name_no_space in system_fonts:
+            available_fonts.append(font_name)
+            continue
+
+    # 如果找不到任何候選字體，使用系統字體列表
+    if not available_fonts:
+        all_fonts = set([f.name for f in fm.fontManager.ttflist])
+        for font in all_fonts:
+            if any(keyword in font.lower() for keyword in ['chinese', 'zh', 'han', 'hei', 'song', 'ming', 'kai']):
+                available_fonts.append(font)
+
+    # 設定 matplotlib 字體配置
+    if available_fonts:
+        plt.rcParams['font.sans-serif'] = available_fonts[:10]  # 使用前 10 個可用字體
+        logging.info(f"已設定中文字體: {available_fonts[0]}")
+    else:
+        # 如果沒有找到中文字體，使用預設字體並警告
+        plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
+        logging.warning("未找到中文字體，可能無法正確顯示中文字符")
+
+    # 解決負號顯示問題
+    plt.rcParams['axes.unicode_minus'] = False
+
+    return available_fonts
 
 
 # 配置類別
@@ -79,10 +158,8 @@ class RelatedJobsGraph:
         # 忽略 matplotlib 警告
         warnings.filterwarnings("ignore", category=UserWarning)
 
-        # 設定中文字體
-        plt.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'WenQuanYi Micro Hei',
-                                           'SimHei', 'DejaVu Sans']
-        plt.rcParams['axes.unicode_minus'] = False
+        # 設定中文字體（自動偵測系統可用字體）
+        self.available_fonts = setup_chinese_font()
 
         self.start_job_id = start_job_id
         self.max_depth = max_depth
@@ -142,12 +219,33 @@ class RelatedJobsGraph:
         """
         從 104.com.tw 獲取職位名稱
 
+        優先使用 API 端點，失敗時嘗試從 HTML 解析
+
         Args:
             job_id: 職位 ID
 
         Returns:
             職位名稱，失敗則返回 job_id
         """
+        # 方法 1: 嘗試使用 API 端點
+        try:
+            api_url = f"https://www.104.com.tw/job/ajax/content/{job_id}"
+            response = requests.get(api_url, headers=self.headers, timeout=10)
+            response.raise_for_status()
+
+            data = response.json()
+            if 'data' in data and 'header' in data['data'] and 'jobName' in data['data']['header']:
+                job_name = data['data']['header']['jobName']
+                if job_name:
+                    logging.debug(f"從 API 獲取職位名稱: {job_name}")
+                    return job_name
+
+        except requests.RequestException as e:
+            logging.debug(f"API 請求失敗 ({job_id}): {e}")
+        except (KeyError, ValueError) as e:
+            logging.debug(f"解析 API 回應失敗 ({job_id}): {e}")
+
+        # 方法 2: 嘗試從 HTML 頁面解析
         try:
             url = f"https://www.104.com.tw/job/{job_id}"
             response = requests.get(url, headers=self.headers, timeout=10)
@@ -156,14 +254,15 @@ class RelatedJobsGraph:
             match = re.search(r'<title>(.*?)｜', response.text)
             if match:
                 job_name = match.group(1)
+                logging.debug(f"從 HTML 獲取職位名稱: {job_name}")
                 return html.unescape(job_name)
 
-            logging.warning(f"無法從 HTML 中提取職位名稱: {job_id}")
-            return job_id
-
         except requests.RequestException as e:
-            logging.error(f"請求職位頁面失敗 ({job_id}): {e}")
-            return job_id
+            logging.debug(f"HTML 請求失敗 ({job_id}): {e}")
+
+        # 如果兩種方法都失敗，返回 job_id
+        logging.warning(f"無法獲取職位名稱，使用 ID 代替: {job_id}")
+        return job_id
 
     def get_related_jobs(self, job_id: str, depth: int, parent_node: Optional[str] = None):
         """
@@ -288,11 +387,19 @@ class RelatedJobsGraph:
         )
 
         # 繪製節點
+        try:
+            # 使用新的 colormap API（Matplotlib 3.7+）
+            import matplotlib as mpl
+            cmap = mpl.colormaps.get_cmap(self.config.color_scheme)
+        except AttributeError:
+            # 向後兼容舊版本
+            cmap = plt.cm.get_cmap(self.config.color_scheme)
+
         nodes = nx.draw_networkx_nodes(
             self.G, pos,
             node_color=node_colors,
             node_size=node_sizes,
-            cmap=plt.cm.get_cmap(self.config.color_scheme),
+            cmap=cmap,
             vmin=0,
             vmax=self.max_depth,
             alpha=0.9,
